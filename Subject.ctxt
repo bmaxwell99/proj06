@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Subject
+comment0.text=\r\n\ Write\ a\ description\ of\ interface\ subject\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=obs
+comment1.target=boolean\ attach(Observer)
+comment2.params=obs
+comment2.target=boolean\ detach(Observer)
+comment3.params=
+comment3.target=boolean\ notifyAllObservers()
+comment4.params=
+comment4.target=void\ getState()
+numComments=5
