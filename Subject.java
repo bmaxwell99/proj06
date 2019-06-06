@@ -10,5 +10,4 @@ public interface Subject
     boolean attach(Observer obs);
     boolean detach(Observer obs);
     boolean notifyAllObservers();
-    void getState();
 }

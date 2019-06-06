@@ -51,12 +51,11 @@ public class GenerateFractal implements Subject, Observer
         return true;
     }
     
-    public void getState(){
     
+     public void update(){
+        
     }
     
-    public void update(){
-    }
     
    public int getRecDepth(){
        return recDepth;

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=GUI
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ GUI\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=subj
+comment1.target=GUI(Subject)
+comment2.params=obs
+comment2.target=boolean\ attach(Observer)
+comment3.params=obs
+comment3.target=boolean\ detach(Observer)
+comment4.params=
+comment4.target=boolean\ notifyAllObservers()
+numComments=5

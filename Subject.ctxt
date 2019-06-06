@@ -7,6 +7,4 @@ comment2.params=obs
 comment2.target=boolean\ detach(Observer)
 comment3.params=
 comment3.target=boolean\ notifyAllObservers()
-comment4.params=
-comment4.target=void\ getState()
-numComments=5
+numComments=4

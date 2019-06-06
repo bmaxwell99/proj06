@@ -1,16 +1,13 @@
 #BlueJ class context
 comment0.target=FractalElement
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ FractalElement\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=centerX\ centerY\ cactusColor\ pearColor
-comment1.target=FractalElement(int,\ int,\ java.awt.Color,\ java.awt.Color)
-comment1.text=\r\n\ FractalElement\ Constructor\r\n\r\n\ @param\ centerX\ A\ parameter\r\n\ @param\ centerY\ A\ parameter\r\n\ @param\ cactusColor\ A\ parameter\r\n\ @param\ pearColor\ A\ parameter\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ interface\ FractalElement\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=int\ getCenterX()
+comment1.text=\r\n\ Method\ getCenterX\r\n\r\n\ @return\ The\ return\ value\r\n
 comment2.params=
-comment2.target=int\ getCenterX()
-comment2.text=\r\n\ Method\ getCenterX\r\n\r\n\ @return\ The\ return\ value\r\n
+comment2.target=int\ getCenterY()
 comment3.params=
-comment3.target=int\ getCenterY()
-comment4.params=
-comment4.target=java.awt.Color\ getCactusColor()
-comment5.params=
-comment5.target=java.awt.Color\ getPearColor()
-numComments=6
+comment3.target=java.awt.Color\ getColor()
+comment4.params=graphics
+comment4.target=void\ draw(java.awt.Graphics)
+numComments=5
