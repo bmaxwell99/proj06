@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.awt.Color;
-
+//cX - (int)((r * (radiusRatio)) * Math.sin(o)), cY + (int)((r * (radiusRatio)) * Math.sin(o)), o - Math.PI/4
 /**
  * Write a description of class GenerateFractal here.
  *
@@ -13,12 +13,12 @@ public class GenerateFractal implements Subject
     ArrayList<Observer> observerList;
 
     int recDepth;
-    int radiusRatio;
+    double radiusRatio;
     Color cactusColor;
     Color pearColor;
-    
-    static final int DEFAULT_CIRCLE_RAIDUS = 200;
-    static final int DEFAULT_CENTER_X = 300;
+
+    static final int DEFAULT_CIRCLE_RAIDUS = 300;
+    static final int DEFAULT_CENTER_X = 400;
     static final int DEFAULT_CENTER_Y = 600;    
 
     public GenerateFractal(){
@@ -26,8 +26,8 @@ public class GenerateFractal implements Subject
         observerList = new ArrayList<Observer>();
 
     }
-    
-    public void setData(int recDepth, int radiusRatio, Color cactusColor, Color pearColor){
+
+    public void setData(int recDepth, double radiusRatio, Color cactusColor, Color pearColor){
         this.recDepth = recDepth;
         this.radiusRatio = radiusRatio;
         this.cactusColor = cactusColor;
@@ -35,20 +35,23 @@ public class GenerateFractal implements Subject
     }
 
     public ArrayList<FractalElement> getData(){
-  
+
         return drawCircle(DEFAULT_CENTER_X, DEFAULT_CENTER_Y, Math.PI/2, recDepth, DEFAULT_CIRCLE_RAIDUS);
     }
-    
+
     private ArrayList<FractalElement> drawCircle(int cX, int cY, double o, int rD, int r){
-        if(rD != 1){
-              fractalData.add(new Circle(cX, cY, r, cactusColor));
-              System.out.println(radiusRatio / 100);
-              drawCircle(cX - (int)((r * (radiusRatio / 100)) * Math.cos(o)), cY + (int)((r * (radiusRatio / 100)) * Math.sin(o)), o - Math.PI/4, rD -1, radiusRatio / 100);
-              //drawCircle(cX * 2, cY * 2, o + Math.PI/4, rD -1, r * (radiusRatio / 100));
+        if(rD == 0){
+            fractalData.add(new Circle(cX, cY, r, pearColor));
+            return fractalData;
         }
-        fractalData.add(new Circle(cX, cY, r, pearColor));
+        else if(rD != 0){
+            fractalData.add(new Circle(cX, cY, r, cactusColor));
+            System.out.println(cX * (-1) * Math.cos(o + Math.PI/4) + "outer X edge of the circle");
+            drawCircle( cX + (int)(( (r * radiusRatio ) ) * Math.cos(o + (Math.PI/4))) , cY - (int)(( (r * radiusRatio ) ) * Math.sin(o + (Math.PI/4))), o, rD -1,(int) (r * radiusRatio));
+            //drawCircle(cX * 2, cY * 2, o + Math.PI/4, rD -1, r * (radiusRatio / 100));
+        }
         return fractalData;
-}
+    }
 
     public boolean attach(Observer obs){
         observerList.add(obs);
@@ -70,12 +73,11 @@ public class GenerateFractal implements Subject
         return true;
     }
 
-    
     public int getRecDepth(){
         return recDepth;
     }
 
-    public int getRadiusRatio(){
+    public double getRadiusRatio(){
         return radiusRatio;
     }
 

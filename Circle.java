@@ -49,7 +49,7 @@ public class Circle implements FractalElement
     
     public void draw(Graphics graphics){
         graphics.setColor(this.color);
-        graphics.fillOval(centerX, centerY, radius, radius);
+        graphics.fillOval(centerX - (radius / 2), centerY - ( radius / 2), radius, radius);
     }
 
     public int getRadius(){

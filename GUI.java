@@ -31,7 +31,7 @@ public class GUI extends JFrame
     private JButton drawButton;
 
     int recDepth;
-    int radiusRatio;
+    double radiusRatio;
     Color cactusColor;
     Color pearColor;
     
@@ -44,13 +44,13 @@ public class GUI extends JFrame
 
     public GUI(Subject subj){
         this.subj = subj;
-
-        //arbitray values to test connections
-        recDepth = 5;
+        
+        //default values
+        recDepth = 6;
         radiusRatio = 50;
-        cactusColor = new Color(150, 150, 150);
-        pearColor = new Color(50,50,50);
-
+        cactusColor = new Color(0, 200, 0);
+        pearColor = new Color(200,0,200);
+        
         setTitle("GUI");
         setSize(500, 300);
         toolkit = getToolkit();
@@ -67,13 +67,14 @@ public class GUI extends JFrame
         //create the widgets
         JButton btnCactusColor = new JButton("Cactus Color...");
         JButton btnPearColor = new JButton("Pear Color...");
+        
         JLabel lblRecDepth = new JLabel("Recursion Depth:");
         JSlider slidRecDepth = new JSlider(REC_DEPTH_MIX, REC_DEPTH_MAX);
-        JTextField txtRecDepth = new JTextField(1);
+        
         JLabel lblRadiusRatio = new JLabel("Radius Ratio:");
-        JLabel lblDraw = new JLabel("When you're ready...");
         JSlider slidRadiusRatio = new JSlider(RADIUS_RATIO_MIN, RADIUS_RATIO_MAX);
-        JTextField txtRadiusRatio = new JTextField(1);
+        
+        JLabel lblDraw = new JLabel("When you're ready...");
         
         JButton btnDraw = new JButton("Draw?");
 
@@ -124,7 +125,8 @@ public class GUI extends JFrame
 
         btnDraw.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent event){
-                    subj.setData(recDepth, radiusRatio, cactusColor, pearColor);
+                    System.out.println("the radius ratio is: " + radiusRatio);
+                    subj.setData(recDepth, radiusRatio/100, cactusColor, pearColor);
                     subj.notifyAllObservers();
                 }
             }
@@ -139,7 +141,7 @@ public class GUI extends JFrame
 
         slidRadiusRatio.addChangeListener(new ChangeListener() {
                 public void stateChanged(ChangeEvent event) {
-                    radiusRatio = slidRadiusRatio.getValue();
+                    radiusRatio = slidRadiusRatio.getValue();;
                 }
             }
         );
