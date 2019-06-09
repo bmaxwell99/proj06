@@ -15,4 +15,6 @@ comment5.params=graphics
 comment5.target=void\ draw(java.awt.Graphics)
 comment6.params=
 comment6.target=int\ getRadius()
-numComments=7
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8

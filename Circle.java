@@ -27,6 +27,7 @@ public class Circle implements FractalElement
         this.centerY = centerY;
         this.color = color;
         this.radius = radius;
+        System.out.println(this);
     }
 
     /**
@@ -47,9 +48,17 @@ public class Circle implements FractalElement
     }
     
     public void draw(Graphics graphics){
+        graphics.setColor(this.color);
+        graphics.fillOval(centerX, centerY, radius, radius);
     }
 
     public int getRadius(){
         return radius;
+    }
+    
+    public String toString(){
+        String r = "This circle has a center at " + getCenterX() +", " + getCenterY() + "\n";
+        r += " a raidus of " + getRadius() + " and a Color of " + getColor()+ "\n";
+        return r;
     }
 }

@@ -13,7 +13,10 @@ public class Main
          GenerateFractal genFract = new GenerateFractal();
          GUI gui = new GUI(genFract);
          Display display = new Display(genFract);
-        
+         genFract.attach(display);
+
+
+         
         
     }
 }
