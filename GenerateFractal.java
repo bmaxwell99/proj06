@@ -17,7 +17,7 @@ public class GenerateFractal implements Subject
     Color cactusColor;
     Color pearColor;
 
-    static final int DEFAULT_CIRCLE_RAIDUS = 300;
+    static final int DEFAULT_CIRCLE_RAIDUS = 150;
     static final int DEFAULT_CENTER_X = 400;
     static final int DEFAULT_CENTER_Y = 600;    
 
@@ -46,9 +46,13 @@ public class GenerateFractal implements Subject
         }
         else if(rD != 0){
             fractalData.add(new Circle(cX, cY, r, cactusColor));
-            System.out.println(cX * (-1) * Math.cos(o + Math.PI/4) + "outer X edge of the circle");
-            drawCircle( cX + (int)(( (r * radiusRatio ) ) * Math.cos(o + (Math.PI/4))) , cY - (int)(( (r * radiusRatio ) ) * Math.sin(o + (Math.PI/4))), o, rD -1,(int) (r * radiusRatio));
-            //drawCircle(cX * 2, cY * 2, o + Math.PI/4, rD -1, r * (radiusRatio / 100));
+            System.out.println(((2 * r * radiusRatio) * Math.cos(o + (Math.PI/4))) + "outer X edge of the circle");
+            drawCircle( cX - (int)((r * radiusRatio + r) * Math.cos(o + (Math.PI/4))) ,
+                        cY - (int)((r * radiusRatio + r) * Math.sin(o + (Math.PI/4))), 
+                        o + Math.PI/4, rD -1,(int) (r * radiusRatio));
+             drawCircle( cX - (int)((r * radiusRatio + r) * Math.cos(o - (Math.PI/4))) ,
+                        cY - (int)((r * radiusRatio + r) * Math.sin(o - (Math.PI/4))), 
+                        o - Math.PI/4, rD -1,(int) (r * radiusRatio));
         }
         return fractalData;
     }
